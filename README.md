@@ -8,7 +8,7 @@ Command|Alias|Permission|Description
 -------|-----|----------|-----------
 /help [command]|/?|afrocore.help.view|Shows help menua
 /feed||afrocore.fly.self|Feed yourself
-/feed <player>||afrocore.fly.others|Feed another player
+/feed \<player>||afrocore.fly.others|Feed another player
 /feed all||afrocore.fly.others|Feed all online players
 /heal||afrocore.heal.self|Heal yourself
 /heal <player>||afrocore.heal.others|Heal another player
