@@ -18,7 +18,7 @@ public class SettingManager {
     private AfroCore afroCore;
 
     private FileConfiguration config;
-    private File cfile;
+    private File configFile;
 
     static SettingManager instance = new SettingManager();
 
@@ -31,9 +31,9 @@ public class SettingManager {
         if (!afroCore.getDataFolder().exists()) {
             afroCore.getDataFolder().mkdir();
         }
-        cfile = new File(afroCore.getDataFolder(), "config.yml");
+        configFile = new File(afroCore.getDataFolder(), "config.yml");
 
-        if (!cfile.exists()) {
+        if (!configFile.exists()) {
             try{
                 File en = new File(afroCore.getDataFolder(), "/config.yml");
                 InputStream E = getClass().getResourceAsStream("/config.yml");
@@ -56,7 +56,7 @@ public class SettingManager {
 
     public Boolean saveConfig() {
         try {
-            config.save(cfile);
+            config.save(configFile);
             reloadConfig();
             return true;
         } catch (IOException e) {
@@ -66,7 +66,7 @@ public class SettingManager {
     }
 
     public void reloadConfig() {
-        config = YamlConfiguration.loadConfiguration(cfile);
+        config = YamlConfiguration.loadConfiguration(configFile);
     }
 
     private static void copyFile(InputStream in, File out) throws Exception { // https://bukkit.org/threads/extracting-file-from-jar.16962/
@@ -118,23 +118,13 @@ public class SettingManager {
 
 
 //    DEBUG
-//    public boolean debugEnabled() {
-//        return config.getBoolean("debug.enabled");
-//    }
 
     public boolean debugEvent(String eventType, String eventName) {
         return config.getBoolean("debug.events." + eventType + "." + eventName);
     }
 
 
-
-
-
 //    CropHopper
-
-//    public boolean cropHopperEnabled() {
-//        return config.getBoolean("crophopper.enabled");
-//    }
 
     public List<String> getCropHopperItems() {
         return config.getStringList("crophopper.items");
