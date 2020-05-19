@@ -45,7 +45,7 @@ public class CropHopper implements Listener {
 
         Bukkit.getPluginManager().registerEvents(new CropHopper(), afroCore);
 
-        locFile = new File(afroCore.getDataFolder() + File.separator + "CropHopper", "hopper_data.yml");
+        locFile = new File(afroCore.getDataFolder() + File.separator + "data", "crophopper-data.yml");
         loc = YamlConfiguration.loadConfiguration(locFile);
 
 //        saveDefaultConfig();
@@ -104,11 +104,11 @@ public class CropHopper implements Listener {
 
         if (loc.getString("hopper-locations." + hopperSave) != null) {
             e.setCancelled(true);
-            p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper_already_in_chunk")));
+            p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper-already-in-chunk")));
             return;
         }
         //Set and save values in .yml
-        p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper_place_success")));
+        p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper-place-success")));
         loc.set("hopper-locations." + hopperSave + "." + "chunkx", chunkX);
         loc.set("hopper-locations." + hopperSave + "." + "chunkz", chunkZ);
         loc.set("hopper-locations." + hopperSave + "." + "x", hopperX);
@@ -161,7 +161,7 @@ public class CropHopper implements Listener {
                 e.getBlock().getWorld().dropItem(blockBroke.getLocation(), cropHopper);
             }
             e.getBlock().setType(Material.AIR);
-            p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper_break_success")));
+            p.sendMessage(cc(AfroCore.settings.getCropHopperMessage("hopper-break-success")));
         }
     }
 
@@ -186,15 +186,15 @@ public class CropHopper implements Listener {
                 ItemStack cropHopper = new ItemStack(Material.HOPPER);
                 nameItemLore(cropHopper, cc(AfroCore.settings.getCropHopperName()), cc(AfroCore.settings.getCropHopperLore()));
                 target.getInventory().addItem(cropHopper);
-                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper_given")));
+                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-given")));
             }
             if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
                 Player target = Bukkit.getPlayer(args[1]);
                 ItemStack cropHopper = new ItemStack(Material.HOPPER);
                 nameItemLore(cropHopper, cc(AfroCore.settings.getCropHopperName()), cc(AfroCore.settings.getCropHopperLore()));
                 target.getInventory().addItem(cropHopper);
-                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper_success")));
-                target.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper_given")));
+                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-success")));
+                target.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-given")));
             }
             if (args.length == 0 || (args.length == 1 && args[0].equalsIgnoreCase("help"))) {
                 sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix")));

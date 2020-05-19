@@ -31,12 +31,12 @@ public class SettingManager {
         if (!afroCore.getDataFolder().exists()) {
             afroCore.getDataFolder().mkdir();
         }
-        cfile = new File(afroCore.getDataFolder(), "Config.yml");
+        cfile = new File(afroCore.getDataFolder(), "config.yml");
 
         if (!cfile.exists()) {
             try{
-                File en = new File(afroCore.getDataFolder(), "/Config.yml");
-                InputStream E = getClass().getResourceAsStream("/Config.yml");
+                File en = new File(afroCore.getDataFolder(), "/config.yml");
+                InputStream E = getClass().getResourceAsStream("/config.yml");
                 copyFile(E, en);
             }catch (Exception e) {
                 e.printStackTrace();
@@ -60,7 +60,7 @@ public class SettingManager {
             reloadConfig();
             return true;
         } catch (IOException e) {
-            Bukkit.getLogger().severe(ChatColor.RED + "Could not save Config.yml!");
+            Bukkit.getLogger().severe(ChatColor.RED + "Could not save config.yml!");
             return false;
         }
     }

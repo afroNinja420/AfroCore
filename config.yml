@@ -1,0 +1,259 @@
+prefix: '&8[&cAfro&3Core&8]'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####################################
+##                                ##
+##           CropHopper           ##
+##                                ##
+####################################
+
+
+crophopper:
+  enabled: true
+  hopper-name: "&bCrop &7Hopper"
+  hopper-lore: "&7Automatically collects drops within a chunk"
+
+  messages:
+    prefix: "&8[&bCropHopper&8] &7> "
+    hopper-already-in-chunk: "There is already a &bCrop &7Hopper in this chunk!"
+    hopper-break-success: "You successfully broke a &bCrop &7Hopper!"
+    hopper-place-success: "You successfully placed a &bCrop &7Hopper!"
+    no-permission: "You do not have permission to use that command!"
+    incorrect-usage: "Incorrect usage! Try: &b/crophopper [player]"
+    player-offline: "That player is offline!"
+    crophopper-success: "Player successfully given a Crop Hopper!"
+    crophopper-given: "You have been given a Crop Hopper!"
+
+  items:
+    - SUGAR_CANE
+    - CACTUS
+    - SULPHUR
+    - TNT
+    - DIAMOND
+    - GOLD_INGOT
+    - GOLD_NUGGET
+    - EMERALD
+    - BLAZE_ROD
+    - RAW_CHICKEN
+    - COOKED_CHICKEN
+    - FEATHER
+    - BONE
+    - ARROW
+    - SPIDER_EYE
+    - STRING
+    - LEATHER
+    - RAW_BEEF
+    - COOKED_BEEF
+    - CARROT
+    - POTATO
+    - IRON_INGOT
+    - ENDER_PEARL
+    - ROTTEN_FLESH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####################################
+##                                ##
+##         DEBUG SETTINGS         ##
+##                                ##
+####################################
+
+debug:
+  enabled: false  # Enable debugging mode
+
+  events:  # Outputs event information to console
+    Block:
+      enabled: true  # Enable/disable all block related event logs
+      BlockBreakEvent: true  # Called when block breaks
+      BlockBurnEvent: true  # Called when block burns
+      BlockCanBuild: true  # Called when we try to place a block to see if we can build it here
+      BlockDamageEvent: true  # Called when block is damaged by a player
+      BlockDispenseEvent: true  # Called when an item is dispensed from a block
+      BlockFadeEvent: true  # Called when a block fades, melts, or disappears based on world conditions
+      BlockFormEvent: true  # Called when a block is formed or spreads based on world conditions
+      BlockFromToEvent: true  # Represents events with source block and a destination block, only applies to liquid and teleporting dragon eggs
+      BlockGrowEvent: true  # Called when a block grows naturally in the world
+      BlockIgniteEvent: true  # Called when a block is ignited
+      BlockPhysicsEvent: true  # Thrown when a block physics check is called
+      BlockPistonExtendEvent: true  # ??
+      BlockPistonRetractEvent: true  # ??
+      BlockPlaceEvent: true  # Called when a block is placed by a player
+      BlockRedstoneEvent: true  # Called when a block is powered by redstone or a redstone current changes
+      BlockSpreadEvent: true  # Called when a block spreads based on world conditions
+      EntityBlockFormEvent: true  # Called when a block is formed by entities
+      LeavesDecayEvent: true  # Called when leaves are decaying naturally
+      NotePlayEvent: true  # Called when a note block is being played through per player interaction or a redstone current
+      SignChangeEvent: true  # Called when a sign is changed by a player
+
+    Enchantment:
+      enabled: true  # Enable/disable all enchantment related event logs
+      EnchantItemEvent: true  # Called when an ItemStack is successfully enchanted at a table
+      PrepareItemEnchantEvent: true  # Called when an ItemStack is inserted in an enchantment table, can be fired multiple times
+
+    Entity:
+      enabled: true  # Enable/disable all entity related event logs
+      CreatureSpawnEvent: true  # Called when a creature is spawned into a world
+      CreeperPowerEvent: true  # Called when a Creeper is hit by lightning and becomes supercharged
+      EntityBreakDoorEvent: true  # Called when an entity breaks a door
+      EntityChangeBlockEvent: true  # Called when a LivingEntity changes a block
+      EntityCombustByBlockEvent: true  # ??
+      EntityCombustByEntityEvent: true  # ??
+      EntityCombustEvent: true  # Called when an entity combusts (or catches on fire)
+      EntityCreatePortalEvent: true  # Thrown when a LivingEntity creates a portal in a world
+      EntityDamageByBlockEvent: true  # Called when entity is hurt by block
+      EntityDamageByEntityEvent: true  # Called when entity is hurt by another entity
+      EntityDamageEvent: true  # Stores data for damage events
+      EntityDeathEvent: true  # Thrown when a LivingEntity dies
+      EntityExplodeEvent: true  # Called when an entity explodes
+      EntityInteractEvent: true  # Called when an entity interacts with an object
+      EntityPortalEnterEvent: true  # Stores data for entities standing inside a portal block
+      EntityRegainHealthEvent: true  # Stores data for health-regain events
+      EntityShootBowEvent: true  # Called when a LivingEntity shoots a bow, firing an arrow
+      EntityTameEvent: true  # Thrown when a LivingEntity is tamed
+      EntityTargetEvent: true  # Called when a creature targets or untargets another entity
+      EntityTargetLivingEntityEvent: true  # Called when an entity targets a LivingEntity and can only be the target
+      EntityTeleportEvent: true  # Thrown when a non-player entity (such as an Enderman) tries to teleport from one location to another
+      ExpBottleEvent: true  # Called when a ThrownExpBottle hits and releases experience
+      ExplosionPrimeEvent: true  # Called when an entity has made a decision to explode (TNT, creeper)
+      FoodLevelChangeEvent: true  # Called when a human entity's food level changes
+      ItemDespawnEvent: true  # Called when an item despawns from the world
+      PigZapEvent: true  # Called when a pig is struck by lightning
+      PlayerDeathEvent: true  # Thrown whenever a Player dies
+      PlayerLeashEntityEvent: true  # Called immediately prior to a creature being leashed by a player
+      PotionSplashEvent: true  # Called when a projectile is launched
+      SheepDyeWoolEvent: true  # Called when a sheep's wool is dyed
+      SheepRegrowWoolEvent: true  # Called when a sheep regrow its wool
+      SlimeSplitEvent: true  # Called when a Slime splits into smaller fragments
+
+    Inventory:
+      enabled: true  # Enable/disable all inventory related event logs
+      BrewEvent: true  # Brewed something (?)
+      CraftItemEvent: true  # Crafted an item (?)
+      FurnaceBurnEvent: true  # Called when an ItemStack is being burned as furl in a furnace
+      FurnaceSmeltEvent: true  # Same as above, but being smelted into another substance
+      InventoryClickEvent: true  # ??
+      InventoryCloseEvent: true  # Called when inventory is closed
+      InventoryEvent: true  # Represents an inventory-related event
+      InventoryOpenEvent: true  # Called when inventory is opened
+
+    Painting:
+      enabled: true  # Enable/disable all painting related event logs
+      PaintingBreakByEntityEvent: true  # Triggered when a painting is removed by an entity
+      PaintingBreakEvent: true  # Triggered when a painting is removed
+      PaintingPlaceEvent: true  # Triggered when a painting is created in the world
+
+    Player:
+      enabled: true  # Enable/disable all player related event logs
+      AsyncPlayerChatEvent: true  # Triggered synchronously depending how it was triggered
+      AsyncPlayerPreLoginEvent: true  # Stores details for players attempting to log in
+      PlayerAnimationEvent: true  # Represents a player animation event
+      PlayerBedEnterEvent: true  # Fired when player is about to enter the bed
+      PlayerBedLeaveEvent: true  # Fired when a player leaving the bed
+      PlayerBucketEmptyEvent: true  # Called when a bucket is emptied
+      PlayerBucketFillEvent: true  # Called when a player fills a bucket
+      PlayerChannelEvent: true  # Called after a player registers or unregisters a new plugin channel
+      PlayerChatEvent: true  # Holds information for player chat and commands !-DEPRECATED-!
+      PlayerChatTabCompleteEvent: true  # Called when a player attempts to tab-complete a message
+      PlayerCommandPreprocessEvent: true  # Called early in command handling process
+      PlayerDropItemEvent: true  # Thrown when a player drops an item from inventory
+      PlayerEggThrowEvent: true  # Called when a player throws an egg and it might hatch
+      PlayerExpChangeEvent: true  # Called when a players experience changes naturally
+      PlayerFishEvent: true  # Thrown when a player is fishing
+      PlayerGameModeChangeEvent: true  # Called when someone switches gamemode
+      PlayerInteractEntityEvent: true  # Represents an event that is called when a player right clicks an entity
+      PlayerInteractEvent: true  # Called when a player interacts w/ an object or air
+      PlayerItemBreakEvent: true  # Fired when a player's item breaks
+      PlayerItemHeldEvent: true  # Fired when a player changes their currently held item
+      PlayerJoinEvent: true  # Called when a player joins a server
+      PlayerKickEvent: true  # Called when a player is kicked from the server
+      PlayerLevelChangeEvent: true  # Called when a players level changes
+      PlayerLoginEvent: true  # Stores details for players attempting to log in
+      PlayerMoveEvent: true  # Holds info for player movement events
+      PlayerPickupItemEvent: true  # Thrown when a player picks up an item up from the ground.
+      PlayerPortalEvent: true  # Called when a player completes the portaling process by standing in a portal
+      PlayerPreLoginEvent: true  # Stores details for players attempting to log in
+      PlayerQuitEvent: true  # Called when a player leaves a server
+      PlayerRegisterChannelEvent: true  # Called immediately after player registers for a plugin channel
+      PlayerRespawnEvent: true  # Called when a player respawns
+      PlayerShearEntityEvent: true  # Called when a player shears an entity, like a sheep
+      PlayerTeleportEvent: true  # Holds information is player teleport events
+      PlayerToggleFlightEvent: true  # Called when a player toggles flying state
+      PlayerToggleSneakEvent: true  # Called when a player toggles sneak state
+      PlayerToggleSprintEvent: true  # Called when a player toggles sprint state
+      PlayerUnregisterChannelEvent: true  # Called immediately after player unregisters for a plugin channel
+      PlayerVelocityEvent: true  # ??
+
+    Server:
+      enabled: true  # Enable/disable all server related event logs
+      MapInitializeEvent: true  # Called when a map is loaded
+      PluginDisableEvent: true  # Called when a plugin is diabled
+      PluginEnableEvent: true  # Called when a plugin is enabled
+      RemoteServerCommandEvent: true  # ??
+      ServerCommandEvent: true  # ??
+      ServerListPingEvent: true  # Called when a server list ping is coming in
+      ServiceRegisterEvent: true  # Called when a service is registered
+      ServiceUnregisterEvent: true  # Called when a service is unregistered
+
+    Vehicle:
+      enabled: true  # Enable/disable all vehicle related event logs
+      VehicleBlockCollisionEvent: true  # Raised when a vehicle collides with a block
+      VehicleCreateEvent: true  # Raised when a vehicle is created
+      VehicleDamageEvent: true  # Raised when a vehicle receives damage from any source
+      VehicleDestroyEvent: true  # Raised when a vehicle is destroyed by any causes, natural or player
+      VehicleEnterEvent: true  # Raised when an entity enters the vehicle
+      VehicleEntityCollisionEvent: true  # Raised when a vehicle collides with an entity
+      VehicleExitEvent: true  # Raised when a living entity exits a vehicle
+      VehicleMoveEvent: true  # Raised when a vehicle moves
+      VehicleUpdateEvent: true  # Called when a vehicle is updated (?)
+
+    Weather:
+      enabled: true  # Enable/disable all weather related event logs
+      LightningStrikeEvent: true  # Stores data for lightning striking
+      ThunderChangeEvent: true  # Stores data for tunder state changing in a world
+      WeatherChangeEvent: true  # Stores data for weather changing in a world
+
+    World:
+      enabled: true  # Enable/disable all world related event logs
+      ChunkLoadEvent: true  # Called when a chunk is loaded
+      ChunkPopulateEvent: true  # Thrown when a new chunk has finished being populated
+      ChunkUnloadEvent: true  # Called when a chunk is unloaded
+      PortalCreateEvent: true  # Called when a portal is created
+      SpawnChangeEvent: true  # Called when world's spawn is changed
+      StructureGrowEvent: true  # Called when an organic structure attempts to grow (Saping > Tree, Mushroom > Huge Mushroom) naturally or using bonemeal
+      WorldInitEvent: true  # Called when a World is initializing
+      WorldLoadEvent: true  # Called when a World is loaded
+      WorldSaveEvent: true  # Called when a World is saved
+      WorldUnloadEvent: true  # Called when a World is unloaded

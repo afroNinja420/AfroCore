@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="AfroCore-0.0.1">
+    <output-path>$USER_HOME$/Desktop/Bukkit/Servers/TEST/LazarusSpigot/plugins</output-path>
+    <root id="archive" name="AfroCore-0.0.1.jar">
+      <element id="module-output" name="AfroCore" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>
