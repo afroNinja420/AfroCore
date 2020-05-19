@@ -26,8 +26,6 @@ public class AfroCore extends JavaPlugin {
 		users.setup(this);
 
 		enableModules();
-
-		setupCommands();
 	}
 
 	public void onDisable(){
@@ -40,24 +38,45 @@ public class AfroCore extends JavaPlugin {
 
 	private void enableModules(){
 
-		if (settings.debugEnabled()) {
+		if (settings.moduleEnabled("debug")) {
 			debug.setup(this);
 		}
 
-		if (settings.cropHopperEnabled()) {
+		if (settings.moduleEnabled("crophopper")) {
 			cropHopper.setup(this);
 		}
-	}
 
-	private void setupCommands(){
-		this.getCommand("fly").setExecutor(new CommandManager());
-		this.getCommand("flytimer").setExecutor(new CommandManager());
-		this.getCommand("help").setExecutor(new CommandManager());
-		this.getCommand("repair").setExecutor(new CommandManager());
-		this.getCommand("fix").setExecutor(new CommandManager());
-		this.getCommand("trash").setExecutor(new CommandManager());
-		this.getCommand("feed").setExecutor(new CommandManager());
-		this.getCommand("heal").setExecutor(new CommandManager());
-		this.getCommand("crophopper").setExecutor(new CommandManager());
+		if (settings.moduleEnabled("fly")) {
+			this.getCommand("fly").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("flytimer")) {
+			this.getCommand("flytimer").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("help")) {
+			this.getCommand("help").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("repair")) {
+			this.getCommand("repair").setExecutor(new CommandManager());
+			this.getCommand("fix").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("trash")) {
+			this.getCommand("trash").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("feed")) {
+			this.getCommand("feed").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("heal")) {
+			this.getCommand("heal").setExecutor(new CommandManager());
+		}
+
+		if (settings.moduleEnabled("crophopper")) {
+			this.getCommand("crophopper").setExecutor(new CommandManager());
+		}
 	}
 }

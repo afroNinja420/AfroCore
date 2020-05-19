@@ -4,10 +4,32 @@ prefix: '&8[&cAfro&3Core&8]'
 
 
 
+####################################
+##                                ##
+##        General Commands        ##
+##                                ##
+####################################
 
+fly:
+  enabled: true
 
+flytimer:
+  enabled: true
 
+help:
+  enabled: true
 
+feed:
+  enabled: true
+
+heal:
+  enabled: true
+
+trash:
+  enabled: true
+
+repair:
+  enabled: true
 
 
 
@@ -24,6 +46,7 @@ prefix: '&8[&cAfro&3Core&8]'
 
 crophopper:
   enabled: true
+
   hopper-name: "&bCrop &7Hopper"
   hopper-lore: "&7Automatically collects drops within a chunk"
 

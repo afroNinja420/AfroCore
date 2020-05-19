@@ -104,6 +104,10 @@ public class SettingManager {
         }
     }
 
+    public Boolean moduleEnabled(String module){
+        return config.getBoolean(module + ".enabled");
+    }
+
     public String getPrefix(){
         return config.getString("prefix");
     }
@@ -114,9 +118,9 @@ public class SettingManager {
 
 
 //    DEBUG
-    public boolean debugEnabled() {
-        return config.getBoolean("debug.enabled");
-    }
+//    public boolean debugEnabled() {
+//        return config.getBoolean("debug.enabled");
+//    }
 
     public boolean debugEvent(String eventType, String eventName) {
         return config.getBoolean("debug.events." + eventType + "." + eventName);
@@ -128,9 +132,9 @@ public class SettingManager {
 
 //    CropHopper
 
-    public boolean cropHopperEnabled() {
-        return config.getBoolean("crophopper.enabled");
-    }
+//    public boolean cropHopperEnabled() {
+//        return config.getBoolean("crophopper.enabled");
+//    }
 
     public List<String> getCropHopperItems() {
         return config.getStringList("crophopper.items");
