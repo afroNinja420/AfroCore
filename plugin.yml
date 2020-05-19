@@ -1,11 +1,30 @@
 name: AfroCore
 version: 0.0.1
-main: me.afroninja.afrocore.AfroCore
+description: AfroNinja's core Spigot plugin.
 author: AfroNinja
+website: https://github.com/afroNinja420
+
+main: me.afroninja.afrocore.AfroCore
+database: false
+#depend: []
 
 commands:
+
   fly:
+    description: Enable/disable flying.
+    #aliases: []
+    permission: afrocore.fly.use
+    usage: /fly [player]
   flytimer:
+    description: Enable fly for a limited time.
+    permission: afrocore.flytimer.use
+    usage: |
+      /&lt;command&gt; <player> <time+s|m|h>
+      Example: /&lt;command&gt; MrPickles 15m - Set fly mode for MrPickles for 15 minutes
+      Example: /&lt;command&gt; MsPickles 1h - Set fly mode for MrPickles for 1 hour
+
+
+
   help:
   repair:
   fix:
@@ -13,3 +32,15 @@ commands:
   feed:
   heal:
   crophopper:
+
+
+
+
+
+
+permissions:
+  afrocore.*:
+    description: Gives access to all AfroCore commands
+    default: false
+    children:
+      afrocore.fly.use: true
