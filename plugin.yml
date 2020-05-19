@@ -1,0 +1,15 @@
+name: AfroCore
+version: 0.0.1
+main: me.afroninja.afrocore.AfroCore
+author: AfroNinja
+
+commands:
+  fly:
+  flytimer:
+  help:
+  repair:
+  fix:
+  trash:
+  feed:
+  heal:
+  crophopper:
