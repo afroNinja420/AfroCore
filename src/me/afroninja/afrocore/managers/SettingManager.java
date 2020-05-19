@@ -5,15 +5,20 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
+import me.afroninja.afrocore.AfroCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 
 public class SettingManager {
+    private AfroCore afroCore;
+
+    private FileConfiguration config;
+    private File cfile;
 
     static SettingManager instance = new SettingManager();
 
@@ -21,27 +26,23 @@ public class SettingManager {
         return instance;
     }
 
-    private Plugin p;
-
-    private FileConfiguration config;
-    private File cfile;
-
-    public void setup(Plugin p) {
-        if (!p.getDataFolder().exists()) {
-            p.getDataFolder().mkdir();
+    public void setup(AfroCore plugin) {
+        afroCore = plugin;
+        if (!afroCore.getDataFolder().exists()) {
+            afroCore.getDataFolder().mkdir();
         }
-        cfile = new File(p.getDataFolder(), "Config.yml");
+        cfile = new File(afroCore.getDataFolder(), "Config.yml");
 
         if (!cfile.exists()) {
             try{
-                File en = new File(p.getDataFolder(), "/Config.yml");
+                File en = new File(afroCore.getDataFolder(), "/Config.yml");
                 InputStream E = getClass().getResourceAsStream("/Config.yml");
                 copyFile(E, en);
             }catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        config = YamlConfiguration.loadConfiguration(cfile);
+        reloadConfig();
 
     }
 
@@ -50,15 +51,17 @@ public class SettingManager {
     }
 
     public PluginDescriptionFile getDesc() {
-        return p.getDescription();
+        return afroCore.getDescription();
     }
 
-    public void saveConfig() {
+    public Boolean saveConfig() {
         try {
             config.save(cfile);
+            reloadConfig();
+            return true;
         } catch (IOException e) {
-            Bukkit.getServer().getLogger()
-                    .severe(ChatColor.RED + "Could not save Config.yml!");
+            Bukkit.getLogger().severe(ChatColor.RED + "Could not save Config.yml!");
+            return false;
         }
     }
 
@@ -66,7 +69,7 @@ public class SettingManager {
         config = YamlConfiguration.loadConfiguration(cfile);
     }
 
-    public static void copyFile(InputStream in, File out) throws Exception { // https://bukkit.org/threads/extracting-file-from-jar.16962/
+    private static void copyFile(InputStream in, File out) throws Exception { // https://bukkit.org/threads/extracting-file-from-jar.16962/
         InputStream fis = in;
         FileOutputStream fos = new FileOutputStream(out);
         try {
@@ -88,54 +91,70 @@ public class SettingManager {
     }
 
 
-//    Setters and Getters
+//    Getters & Setters
 
-    private void set(String path, Object value){
-        config.set(path, value);
-        saveConfig();
-        reloadConfig();
+    private Boolean set(String path, Object value){
+        try {
+            config.set(path, value);
+            saveConfig();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-
-    private String getString(String path){
-        return config.getString(path);
-    }
-
-    private Boolean getBoolean(String path){
-        return config.getBoolean(path);
-    }
-
-    private int getInt(String path){
-        return config.getInt(path);
-    }
-
-    private Double getDouble(String path){
-        return config.getDouble(path);
-    }
-
-    private Float getFloat(String path){
-        return config.getFloat(path);
-    }
-
-    private Long getLong(String path){
-        return config.getLong(path);
-    }
-
-
-//    Settings
 
     public String getPrefix(){
-        return getString("prefix");
+        return config.getString("prefix");
     }
 
     public void setPrefix(String value){
-        set("prefix", value);
+        config.set("prefix", value);
     }
 
+
+//    DEBUG
     public boolean debugEnabled() {
-        return getBoolean("debug.enabled");
+        return config.getBoolean("debug.enabled");
     }
 
     public boolean debugEvent(String eventType, String eventName) {
-        return getBoolean("debug.events." + eventType + "." + eventName);
+        return config.getBoolean("debug.events." + eventType + "." + eventName);
+    }
+
+
+
+
+
+//    CropHopper
+
+    public boolean cropHopperEnabled() {
+        return config.getBoolean("crophopper.enabled");
+    }
+
+    public List<String> getCropHopperItems() {
+        return config.getStringList("crophopper.items");
+    }
+
+    public String getCropHopperName() {
+        return config.getString("crophopper.hopper-name");
+    }
+
+    public String getCropHopperLore() {
+        return config.getString("crophopper.hopper-lore");
+    }
+
+    public String getCropHopperMessage(String message) {
+        return config.getString("crophopper.messages." + message);
+    }
+
+    public Boolean setCropHopperItems(List<String> items) {
+        try {
+            set("crophopper.items", items);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

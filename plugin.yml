@@ -8,6 +8,8 @@ commands:
   flytimer:
   help:
   repair:
+  fix:
   trash:
   feed:
   heal:
+  crophopper:

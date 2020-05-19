@@ -26,6 +26,10 @@ public class UserManager implements Listener {
         return instance;
     }
 
+    public void setup(AfroCore afroCore) {
+        Bukkit.getPluginManager().registerEvents(new UserManager(), afroCore);
+    }
+
     public static void addPlayer(Player player, YamlConfiguration userData) {
         if (!allPlayers.containsKey(player.getUniqueId().toString())) {
             allPlayers.put(player.getUniqueId().toString(), userData);
@@ -92,4 +96,5 @@ public class UserManager implements Listener {
     public YamlConfiguration getUserData(Player player){
         return allPlayers.get(player.getUniqueId().toString());
     }
+
 }
