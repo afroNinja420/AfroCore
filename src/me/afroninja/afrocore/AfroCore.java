@@ -2,18 +2,17 @@ package me.afroninja.afrocore;
 
 import me.afroninja.afrocore.debug.Debug;
 import me.afroninja.afrocore.managers.CommandManager;
+import me.afroninja.afrocore.managers.MessageManager;
 import me.afroninja.afrocore.managers.SettingManager;
 import me.afroninja.afrocore.modules.crophopper.CropHopper;
-import me.afroninja.afrocore.users.UserManager;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
 public class AfroCore extends JavaPlugin {
 	public static AfroCore instance;
 	public static SettingManager settings = SettingManager.getInstance();
+	public static MessageManager messages = MessageManager.getInstance();
 	public static Debug debug = Debug.getInstance();
-	public static UserManager users = UserManager.getInstance();
 	public static CropHopper cropHopper = CropHopper.getInstance();
 
 	public static AfroCore getInstance() {
@@ -23,13 +22,13 @@ public class AfroCore extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		settings.setup(this);
-		users.setup(this);
+		messages.setup(this);
 
 		enableModules();
 	}
 
 	public void onDisable(){
-		users.saveAll();
+		User.unregisterAll();
 	}
 
 	public int getOnlineCount(String group) {

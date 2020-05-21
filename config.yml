@@ -1,4 +1,4 @@
-prefix: '&8[&cAfro&3Core&8]'
+
 
 
 
@@ -47,19 +47,6 @@ repair:
 crophopper:
   enabled: true
 
-  hopper-name: "&bCrop &7Hopper"
-  hopper-lore: "&7Automatically collects drops within a chunk"
-
-  messages:
-    prefix: "&8[&bCropHopper&8] &7> "
-    hopper-already-in-chunk: "There is already a &bCrop &7Hopper in this chunk!"
-    hopper-break-success: "You successfully broke a &bCrop &7Hopper!"
-    hopper-place-success: "You successfully placed a &bCrop &7Hopper!"
-    no-permission: "You do not have permission to use that command!"
-    incorrect-usage: "Incorrect usage! Try: &b/crophopper [player]"
-    player-offline: "That player is offline!"
-    crophopper-success: "Player successfully given a Crop Hopper!"
-    crophopper-given: "You have been given a Crop Hopper!"
 
   items:
     - SUGAR_CANE

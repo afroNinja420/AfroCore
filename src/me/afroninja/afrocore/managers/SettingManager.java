@@ -151,4 +151,12 @@ public class SettingManager {
             return false;
         }
     }
+
+    public int getStartBalance() {
+        return config.getInt("startBalance");
+    }
+
+    public void setStartBalance(int amount) {
+        config.set("startBalance", amount);
+    }
 }

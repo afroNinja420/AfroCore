@@ -186,15 +186,15 @@ public class CropHopper implements Listener {
                 ItemStack cropHopper = new ItemStack(Material.HOPPER);
                 nameItemLore(cropHopper, cc(AfroCore.settings.getCropHopperName()), cc(AfroCore.settings.getCropHopperLore()));
                 target.getInventory().addItem(cropHopper);
-                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-given")));
+                sender.sendMessage(cc(AfroCore.messages.getString("crophopper.crophopper-given")));
             }
             if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
                 Player target = Bukkit.getPlayer(args[1]);
                 ItemStack cropHopper = new ItemStack(Material.HOPPER);
                 nameItemLore(cropHopper, cc(AfroCore.settings.getCropHopperName()), cc(AfroCore.settings.getCropHopperLore()));
                 target.getInventory().addItem(cropHopper);
-                sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-success")));
-                target.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix") + AfroCore.settings.getCropHopperMessage("crophopper-given")));
+                sender.sendMessage(cc(AfroCore.messages.getString("crophopper.crophopper-success")));
+                target.sendMessage(cc(AfroCore.messages.getString("crophopper.crophopper-given")));
             }
             if (args.length == 0 || (args.length == 1 && args[0].equalsIgnoreCase("help"))) {
                 sender.sendMessage(cc(AfroCore.settings.getCropHopperMessage("prefix")));
@@ -213,7 +213,7 @@ public class CropHopper implements Listener {
                 }
                 if (args[0].equalsIgnoreCase("reload")) {
                     reloadConfig();
-                    sender.sendMessage(ChatColor.GOLD + "CropHopper: Reloading cfguration.");
+                    sender.sendMessage(ChatColor.GOLD + "CropHopper: Reloading configuration.");
                     return;
                 }
             }
