@@ -43,10 +43,10 @@ public class Help {
                 printCommand(p, "fly <Player>", "Toggle flying for another player");
             }
             if (sender.hasPermission("afrocore.fly.speed.self")){
-                printCommand(p, "fly speed <1-99>", "Set fly speed");
+                printCommand(p, "fly speed <1-99>", "Set fly speed (%)");
             }
             if (sender.hasPermission("afrocore.fly.speed.other")){
-                printCommand(p, "fly speed <player> <1-99>", "Set fly speed for another player");
+                printCommand(p, "fly speed <player> <1-99>", "Set fly speed (%) for another player");
             }
             if (sender.hasPermission("afrocore.fly.timer")){
                 printCommand(p, "flytimer <player> <time + s|m|h>", "Set fly timer for a player");
@@ -55,7 +55,7 @@ public class Help {
             log = Bukkit.getLogger();
             log.info(settings.getPrefix() + "&7- &b/fly &7- &2Toggle flying");
             log.info(settings.getPrefix() + "&7- &b/fly <Player> &7- &2Toggle flying for another player");
-            log.info(settings.getPrefix() + "&7- &b/fly speed <Player> <1-99> &7- &2Set fly speed for another player");
+            log.info(settings.getPrefix() + "&7- &b/fly speed <Player> <1-99%> &7- &2Set fly speed for another player");
             log.info(settings.getPrefix() + "&7- &b/flytimer <Player> <Time + s|m|h> &7- &2Set fly timer for a player");
         }
     }
