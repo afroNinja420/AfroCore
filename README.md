@@ -6,7 +6,7 @@ AfroNinja's Core  Spigot plugin.
 
 Command|Alias|Permission|Description
 -------|-----|----------|-----------
-/help [command]|/?|afrocore.help.view|Shows help menua
+/help [command]|/?|afrocore.help.view|Shows help menu
 /feed||afrocore.feed.self|Feed yourself
 /feed \<player>||afrocore.feed.others|Feed another player
 /feed all||afrocore.feed.others|Feed all online players
