@@ -7,9 +7,9 @@ AfroNinja's Core  Spigot plugin.
 Command|Alias|Permission|Description
 -------|-----|----------|-----------
 /help [command]|/?|afrocore.help.view|Shows help menua
-/feed||afrocore.fly.self|Feed yourself
-/feed \<player>||afrocore.fly.others|Feed another player
-/feed all||afrocore.fly.others|Feed all online players
+/feed||afrocore.feed.self|Feed yourself
+/feed \<player>||afrocore.feed.others|Feed another player
+/feed all||afrocore.feed.others|Feed all online players
 /heal||afrocore.heal.self|Heal yourself
 /heal \<player>||afrocore.heal.others|Heal another player
 /heal all||afrocore.heal.others|Heal all online players
